@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <ul class="u1">
+    <li>1</li>
+    <li>2
+      <ul class="u2">
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+      </ul>
+    </li>
+    <li>3</li>
+    <li>4</li>
+  </ul>
+  <script>
+    let ul = document.querySelector('.u1');
+    let handle = function (e) {
+      console.log(e.target);
+    };
+    ul.addEventListener('click', handle);
+
+
+    console.log(1);
+    setTimeout(() => {
+      //执行后 回调一个宏事件
+      console.log('2')
+    }, 0)
+    new Promise((resolve) => {
+      console.log('3');
+      resolve();
+    }).then(() => {
+      console.log('4');
+    }).then(() => {
+      console.log('5')
+    })
+  </script>
+</body>
+</html>
