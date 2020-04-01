@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="base.css"/>
+</head>
+<body>
+  <ul>
+    <li>1
+      <ul>
+        <li>a</li>
+        <li>b
+          <ul>
+            <li>1</li>
+            <li>2</li>
+          </ul>
+        </li>
+        <li>c</li>
+      </ul>
+    </li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+  </ul>
+
+  <script>
+    let list = document.getElementsByTagName('li');
+    // console.log(list);
+    for (let i = 0; i < list.length; i++) {
+      list[i].addEventListener('click',handle);
+    }
+
+    function handle (e) {
+      this.bool = !this.bool;
+      e.stopPropagation();
+      if (this.bool) {
+        // console.log(this.bool);
+        this.firstElementChild.style.display = 'none';
+      } else {
+        this.firstElementChild.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>
