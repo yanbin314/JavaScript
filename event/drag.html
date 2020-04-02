@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body, html {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .drag {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 120px;
+      height: 120px;
+      background: salmon;
+    }
+  </style> 
+</head>
+<body>
+  <div class="drag"></div>
+  <div class="drag"></div>
+  <div class="drag"></div>
+  <div class="drag"></div>
+  <div class="drag"></div>
+
+  <script>
+    let divs = document.querySelectorAll('.drag');
+
+    divs.forEach( (item) => {
+      drag(item);
+    });
+    
+    function drag (item) {
+      item.addEventListener('mousedown', handle);
+    }
+
+    function handle (e) {
+      
+      switch (e.type) {
+        case 'mousedown':
+
+        e.preventDefault();
+        document.addEventListener('mousemove', handle);
+        document.x = e.offsetX;
+        document.y = e.offsetY;
+        document.elem = this;
+        break;
+
+        case 'mousemove':
+        
+        document.addEventListener('mouseup', handle);
+        document.elem.style.left = e.clientX - document.x + 'px';
+        document.elem.style.top = e.clientY - document.y + 'px';
+        break;
+        
+
+        case 'mouseup':
+
+        document.removeEventListener('mousemove', handle);
+
+        break;
+      }
+      
+    }
+
+
+    // let divs = document.querySelectorAll('.drag');
+    
+    // divs.forEach((item) => {item.addEventListener('mousedown', down)});
+    // function down (e) {
+    //   e.preventDefault();
+    //   document.n = this;
+    //   // console.log(this);
+    //   document.addEventListener('mousemove', move);
+    //   document.x = e.offsetX;
+    //   document.y = e.offsetY;
+    //   this.addEventListener('mouseup', up);
+    // }
+    // function move (e) {
+    //   document.n.style.top = e.clientY - document.y + 'px';
+    //   document.n.style.left = e.clientX - document.x + 'px';
+    // }
+    // function up () {
+    //   document.removeEventListener('mousemove', move);
+    // }
+   
+    // divs.forEach((item) => {
+    //   item.addEventListener('mousedown', drag);
+    // });
+    // function drag (e) {
+    //   let that = this;
+    //   let top = that.offsetTop;
+    //   let left = that.offsetLeft;
+      
+    //   e.stopPropagation();
+    //   switch (e.type) {
+    //     case 'mousedown':
+    //         this.addEventListener('mousemove', drag);
+    //       break;
+    //     case 'mousemove':
+    //         this.addEventListener('mouseup', drag);
+    //         this.removeEventListener('mousedown', drag);
+    //         this.style.top = e.clientY - top  + "px";
+    //         this.style.left = e.clientX - left  + "px";
+    //       break;
+    //     case 'mouseup':
+    //         // this.style.top = e.clientY - top - 60 + "px";
+    //         // this.style.left = e.clientX - left - 60 + "px";
+    //         this.removeEventListener('mousemove', drag);
+    //         console.log(e);
+    //       break;
+            
+    //   }
+   // }
+  </script>
+</body>
+</html>
