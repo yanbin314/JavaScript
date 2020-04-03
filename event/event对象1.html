@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+    <input class="que" type='text' placeholder="题目">
+    <div class="ans"></div>
+    <!-- <input class="ans" type='text' placeholder="答案" disabled="disabled"> -->
+    <input type="submit" class="sub">
+
+  <script>
+    let form = document.querySelector('form');
+    let que = document.querySelector('.que');
+    let ans = document.querySelector('.ans');
+    let sub = document.querySelector('.sub');
+    // form.addEventListener('submit', handle);
+    // function handle (e) {
+    //   e.preventDefault();
+    // }
+    
+    que.addEventListener('select', handle);
+
+    function handle (e) {
+      let content = Array.from(e.target.value);
+      let start = que.selectionStart;
+      let end = que.selectionEnd - 1;
+      let num = que.selectionEnd - que.selectionStart;    
+      document.elem = e.target;
+      document.elem.value = '';
+      if (end === content.length - 1) {
+        lastSelect(content, start, num);
+      } else if (end < content.length - 1) {
+        notLast(content, start, end, num);
+      }
+    }
+    function notLast (content, startIndex, endIndex, num) {
+      console.log(content, startIndex, endIndex, num);
+      //定义一个空数组 存放选中的字符 并进行操作
+      let items = new Array();
+      //将选中的字符从原数组中删除并存在新数组中
+      let item = content.splice(startIndex, num);
+      console.log(content, startIndex, endIndex, num);
+      item.forEach( (n) => {
+        items = items + n.toUpperCase();
+      });      
+      // 将items的元素加入原数组
+      for ( let n = 0; n < items.length; n++) {
+        content.splice(startIndex, 0, items[n]);
+      }
+      // // console.log(document.elem)
+      for (let n of content.values()) {
+        document.elem.value = document.elem.value + n;
+      }
+      console.log(content, startIndex, endIndex, num);
+
+    }
+    function lastSelect (content, startIndex, num) {
+      console.log(content, startIndex, num)
+      //定义一个空数组 存放选中的字符 并进行操作
+      let items = new Array();
+      //将选中的字符从原数组中删除并存在新数组中
+      let item = content.splice(startIndex, num);
+      // 对新数组遍历并转为大写 存到空数组中
+      item.forEach( (n) => {
+        items = items + n.toUpperCase();
+      });      
+      // console.log(item, items)
+      // 将items的元素加入原数组
+      for ( let n = 0; n < items.length; n++) {
+        content.splice(startIndex, 0, items[n]);
+      }
+      // // console.log(document.elem)
+      for (let n of content.values()) {
+        document.elem.value = document.elem.value + n;
+      }
+    }
+    // sub.addEventListener('click', submit1);
+    // function submit1 () {
+    //   let q = que.value;
+    //   console.log(q)
+    //   $.post("https://badyun.yhfx.xyz",{q:q},function(result){
+    //     console.log(result);
+    //   });
+  </script>
+</body>
+</html>
