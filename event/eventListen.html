@@ -58,7 +58,7 @@
         console.log(div)
       },num * 1000, this);
       num ++;
-      // console.log(e.target, e.currentTarget, this);
+      console.log(e.target, e.currentTarget, this);
     };
     let handle2 = function (e) {
       setTimeout( function (div) {
@@ -66,27 +66,27 @@
         console.log(div)
       },num * 1000, this);
       num ++;
-      // console.log(e.target, e.currentTarget, this);
+      console.log(e.target, e.currentTarget, this);
     };
     let handle3 = function (e) {
-      e.stopPropagation();
+      // e.stopPropagation();
       setTimeout( function (div) {
         div.style.backgroundColor = 'rgba(148, 0, 211, 0.2)';
         console.log(div)
       },num * 1000, this);
       num ++;
-      // console.log(e.target, e.currentTarget, this);
+      console.log(e.target, e.currentTarget, this);
     };
     //第二个先出 再第三个 第一个
     // d1.addEventListener('click', handle1);
     // d2.addEventListener('click', handle2, true);
     // d3.addEventListener('click', handle3);  
-    // d1.addEventListener('click', handle1, true);
-    // d2.addEventListener('click', handle2, true);
-    // d3.addEventListener('click', handle3, true);
-    d1.addEventListener('click', handle1);
-    d2.addEventListener('click', handle2);
-    d3.addEventListener('click', handle3);
+    d1.addEventListener('click', handle1, true);
+    d2.addEventListener('click', handle2, true);
+    d3.addEventListener('click', handle3, true);
+    // d1.addEventListener('click', handle1);
+    // d2.addEventListener('click', handle2);
+    // d3.addEventListener('click', handle3);
     let btn = document.querySelector('button');
     let e = new Event('yyb');
     let handle = function () {
@@ -95,7 +95,10 @@
     btn.addEventListener('yyb', handle);
     btn.dispatchEvent(e); //抛发事件
 
-    
+    window.oncontextmenu = function (e) {
+        //取消默认的浏览器自带右键 很重要！！
+        e.preventDefault();
+    }
   </script>
 </body>
 </html>

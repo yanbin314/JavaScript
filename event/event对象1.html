@@ -22,8 +22,16 @@
     //   e.preventDefault();
     // }
     
-    que.addEventListener('select', handle);
+    que.addEventListener('select', handle1);
 
+    function handle1 (e) {
+      document.elem = e.target;
+      let content = document.elem.value;
+      let start = que.selectionStart;
+      let end = que.selectionEnd;
+      document.elem.value = content.slice(0, start) + content.slice(start, end).toUpperCase() + 
+                            content.slice(end);
+    }
     function handle (e) {
       let content = Array.from(e.target.value);
       let start = que.selectionStart;
@@ -48,7 +56,9 @@
         items = items + n.toUpperCase();
       });      
       // 将items的元素加入原数组
-      for ( let n = 0; n < items.length; n++) {
+      //因为splice方法是从一个固定的索引开始向后添加元素，每次加进来的元素都是这个索引的后一位，
+      //所以应该先添加最后的内容
+      for ( let n = items.length - 1; n > -1; n--) {
         content.splice(startIndex, 0, items[n]);
       }
       // // console.log(document.elem)
@@ -56,7 +66,6 @@
         document.elem.value = document.elem.value + n;
       }
       console.log(content, startIndex, endIndex, num);
-
     }
     function lastSelect (content, startIndex, num) {
       console.log(content, startIndex, num)
@@ -69,8 +78,8 @@
         items = items + n.toUpperCase();
       });      
       // console.log(item, items)
-      // 将items的元素加入原数组
-      for ( let n = 0; n < items.length; n++) {
+      // 将items的元素加入原数组 
+      for ( let n = items.length - 1; n > -1; n--) {
         content.splice(startIndex, 0, items[n]);
       }
       // // console.log(document.elem)
