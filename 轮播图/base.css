@@ -13,7 +13,7 @@ ul, li {
   list-style-type: none;
 }
 .Wrapper {
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   position: relative;
   width: 800px;
   height: 500px;
@@ -38,4 +38,11 @@ ul, li {
 .list img {
   width: 800px;
   height: 500px;
+}
+.list_nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  bottom: 10px;
 }
