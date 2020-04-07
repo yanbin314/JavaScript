@@ -8,14 +8,33 @@
   <link rel="stylesheet" href="base.css">
 </head>
 <body>
-  <button>点击我</button>
+  <button class="unlock">不锁定滚动条</button>
+  <button class="lock">锁定滚动条</button>
   <div style="height: 2000px;"></div>
-
-  <div class="jumpWrapper">
+  <!-- <div class="jumpWrapper">
     <div class="jump">
       <button>关闭</button>
     </div>
-  </div>
-  <script src="base.js"></script>
+  </div> -->
+  <script src="base_v2.js"></script>
+  <script>
+    function $(item) {
+      return document.querySelector(item);
+    }
+    $('.unlock').addEventListener('click', () => {
+      yyb.unlock({
+        gradient: false,
+        pop: true,
+        click: false,
+      });
+    });
+    $('.lock').addEventListener('click', () => {
+      yyb.lock({
+        gradient: true,
+        pop: false,
+        click: true,
+      });
+    });
+  </script>
 </body>
 </html>

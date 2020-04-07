@@ -1,4 +1,8 @@
-let body = document.querySelector('body');
+// function $(item) {
+//   return document.querySelector(item);
+// }
+// $('body').addEventListener('click', () => {console.log(111)});
+// let body = document.querySelector('body');
 let btns = document.querySelectorAll('button');
 let wrapper = document.querySelector('.jumpWrapper');
 let inner = document.querySelector('.jump');
@@ -9,6 +13,7 @@ btns.forEach( (item, index) => {
   });
 });
 wrapper.addEventListener('click', () => {
+
   jumpHandle(2);
 });
 
@@ -23,7 +28,7 @@ function jumpHandle (num) {
   if (num === 0) {
     inner.classList.add('jumpOut');
     wrapper.classList.add('jumpOut');
-     wrapper.style.display = 'flex';
+    wrapper.style.display = 'flex';
     body.style.overflow = 'hidden';
   } else if (num === 1 || num === 2) {
     if (target.target === inner) {
@@ -37,7 +42,6 @@ function jumpHandle (num) {
         wrapper.style.display = 'none';
         body.style.overflow = '';
         clearInterval(timer);
-    },390)
+    },300)
   }
-
 }

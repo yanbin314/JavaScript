@@ -22,11 +22,29 @@ html, body {
   width: 500px;
   height: 400px;
   background: brown;
-  /* transition: 0.4s; */
+}
+.jump-after {
+  display: block;
+  float: left;
+  width: 80px;
+  height: 20px;
+  border-radius: 8px;
+  line-height: 20px;
+  text-align: center;
+  background-color: burlywood;
 }
 .jumpIN {
   animation: jumpIN 0.4s linear;
 }
 .jumpOut {
   animation: jumpOut 0.4s linear;
+}
+.popIn {
+  width: 0;
+  height: 0;
+  transition: 0.2s;
+  /* animation: popIn 0.3s linear; */
+}
+.popOut {
+  animation: popOut 0.3s linear;
 }

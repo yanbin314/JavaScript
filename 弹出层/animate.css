@@ -1,5 +1,20 @@
 @keyframes jumpOut {
-  /* 0% {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes jumpIN {
+  0% {
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes popOut {
+  0% {
   }
   30% {
     transform: scale(1.2);
@@ -9,22 +24,13 @@
   }
   100% {
     transform: scale(1);
-  } */
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-    /* width: 0;
-    height: 0; */
   }
 }
-@keyframes jumpIN {
+/* @keyframes popIn {
   0% {
+    transform: scale(1);
   }
   100% {
-    opacity: 0;
-    /* width: 0;
-    height: 0; */
+    transform: scale(0);
   }
-}
+} */
