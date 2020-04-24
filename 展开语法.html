@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // var arr = [1, 2, 3, 4, 5, 6];
+        // var [a, b, c, ...d] = arr;
+        // console.log(a, b, c, d);
+
+        var sum = function (discount, ...price) {
+            var total = price.reduce( (a, b) => { 
+                return a 
+                + b;
+            });
+            return Math.round(total * ( 1 - discount));
+            console.log(price);
+        };
+        
+        console.log(sum(0.5, 564, 8748, 63, 741, 852));
+    </script>
+</body>
+</html>

@@ -18,6 +18,7 @@ class Tab {
     this.updateElm();
     that.navs.forEach( (item, index) => {
       item.index = index;
+      // item.ifclick = false;
       item.addEventListener('click', that.toggleTab);
     });
     that.add.addEventListener('click', that.addTab);
@@ -31,6 +32,8 @@ class Tab {
     // console.log(this.index)
     that.clearClass();
     that.navs[this.index].classList.add('a-active');
+    //用于删除元素时判断是否选中 再决定是否更改样式
+    // that.navs[this.index].ifclick = true;
     that.items[this.index].classList.add('item-active')
   }
 
@@ -65,23 +68,23 @@ class Tab {
     let index = this.parentNode.index;
     that.nav.removeChild(that.navs[index]);
     that.content.removeChild(that.items[index]);
-    index --;
+
+    console.log(index, that.navs.length, that.navs[index].ifclick);
 
     that.init();
-    console.log(index, that.navs.length);
-    if (that.navs.length === 0) {
-      alert('最后一个了');
-      return;
-    } else if (index !== that.navs.length) {
+    index --;
+    // if (e.target.classList)
+    
+    if (index !== that.navs.length) {
+      that.clearClass();
       let n = that.navs.length - 1;
       that.navs[n].classList.add('a-active');
       that.items[n].classList.add('item-active');
     } else {
+      that.clearClass();
       that.navs[index].classList.add('a-active');
       that.items[index].classList.add('item-active');   
     }
-
-
     // console.log()
   }
 

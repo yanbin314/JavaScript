@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var s1 = Symbol('fo');
+        var s2 = Symbol('fo');
+        console.log(s1.toString());
+
+        var s3 = Symbol.for('ww');
+        var s4 = Symbol.for('ww');
+        console.log(Symbol.keyFor(s2));// 只能寻找for增加的参数
+        console.log(s3 === s4);
+
+        var s5 = Symbol('s5');
+        var obj1 = {
+             [s5]: 'df',
+             s5: 'df',
+        }
+        console.log(obj1[s5]);
+        console.log(obj1.s5);
+    </script>
+</body>
+</html>
