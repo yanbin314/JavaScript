@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function hd() {
+        //     let n = 1;
+        //     function sum() {  
+        //         console.log(++n);
+        //     }
+        //     sum();
+        // }
+        // hd();
+        // hd();//每调用一次 上一次的清除
+        // function hd() {
+        //     let n = 1;
+        //     return function () {  
+        //         console.log(++n);
+        //     }
+        // }
+        // let a = hd();//将21行的函数赋值给a
+        // a();//赋值后 每调用一次 上次的内存空间不会被清除 可以累加
+        // a();
+        // let b = hd();
+        // b();
+        // b();
+        // function hd() {
+        //     let n = 1;
+        //     return function () {  
+        //         let m = 99;
+        //         function show() {  
+        //             console.log(++m);
+        //         }
+        //         show();
+        //     };
+        // }
+        // let a = hd();
+        // a();
+        // a();
+        function hd() {
+            let n = 1;
+            return function () {  
+                let m = 99;
+                return function () {  
+                    console.log(++m);
+                };
+            };
+        }
+        let a = hd()();
+        a();
+        a();
+    </script>
+</body>
+</html>
