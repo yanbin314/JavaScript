@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let user = {
+            name: 'sd',
+            age: 14,
+        };
+        console.log(user);
+        let {name: a, age: b} = user;
+        console.log(a, b);
+        // let {name, age} = user;
+        // console.log(name, age);
+
+        function hd() {
+            return {
+                name: 'wa',
+                age: 21,
+            };
+        }
+        let {name, age} = hd();
+        console.log(name, age);
+
+        function user1( {name, age} ) {
+            console.log(name, age);
+        }
+        user1({
+            name: 'qw',
+            age: 45,
+        });
+
+        // 多层对象解构赋值
+        let user2 = {
+            name: 'sdf',
+            lesson: {
+                title: 'sadfasdas',
+            },
+        }
+        // let {
+        //     name: aa,
+        //     lesson: bb,
+        // } = user2;
+        // console.log(aa, bb);
+        let {
+            name: aa,
+            lesson: {
+                title: bb,
+            },
+        } = user2;
+        console.log(aa, bb);
+
+        function add(a) {  
+            console.log(++a.a);
+            console.log(++a.a);
+
+            console.log(a.a);
+        }
+
+        let obj = {
+            a: 1,
+            b: 3,
+        }
+        add(obj);
+        console.log(obj.a);
+    </script>
+</body>
+</html>

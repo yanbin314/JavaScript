@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border: 1px solid #000;
+            width: 50px;
+            height: 20px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div>555</div>
+    <div>666</div>
+    <script>
+        let btns = document.querySelectorAll('div');
+        btns.forEach( (item) => {
+            let timer = null;
+            item.addEventListener('click', function() {
+                if (!timer) {
+                    let left = 1;
+                    timer = setInterval(() => {
+                        item.style.left = left + 'px';
+                        left++;
+                        if (left === 1500) {
+                            clearInterval(timer)
+                        }
+                    }, 100);
+                }
+
+            });
+        });
+    </script>
+</body>
+</html>

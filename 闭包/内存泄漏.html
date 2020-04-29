@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div desc="asdasd">士大夫</div>
+    <div desc="asdfasqw">鼎折覆餗大</div>
+
+    <script>
+        let divs = document.querySelectorAll('div');
+
+        divs.forEach( (item) => {
+            let desc = item.getAttribute('desc');
+            item.addEventListener('click', function() {  
+                console.log(desc);
+                console.log(item);
+            });
+
+            item = null;
+        });
+    </script>
+</body>
+</html>
