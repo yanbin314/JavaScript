@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // let id = 0;
+        // let hd = {};
+        // hd[`id-${++id}`] = id;
+        // console.log(hd);
+
+        const lessons = [
+            {
+                title: 1,
+                cate: 'a',
+            },
+            {
+                title: 2,
+                cate: 'b',
+            },
+            {
+                title: 3,
+                cate: 'c',
+            },
+        ];
+        let res = lessons.reduce((obj, cur, index) => {
+            console.log(obj, cur, index);
+            obj[`${cur['cate']}-${index+1}`] = cur;
+            return obj;
+        }, {});
+        console.log(JSON.stringify(res, null, 2));
+        // let upload = {
+        //     size: 10000,
+        // }
+        // let hd = Object.assign(upload, {
+        //     size: 99,
+        //     type: 'text',
+        // })
+        // console.log(hd);
+    </script>
+</body>
+</html>
