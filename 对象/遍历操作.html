@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let hd = {
+            name: 'yb',
+            year: '2020',
+        };
+        console.log(Object.keys(hd));
+        console.log(Object.values(hd));
+        console.log(Object.entries(hd)[0]);
+        console.log(JSON.stringify(Object.entries(hd), null, 2));
+
+        for (const key in hd) {
+            console.log(key);
+            console.log(hd[key]);
+        }
+        
+        for (const key of Object.entries(hd)) {
+            console.log(key);
+        }
+    </script>
+</body>
+</html>
