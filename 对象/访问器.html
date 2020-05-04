@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let user = {
+            name: 'yyb',
+            age: 20,
+
+            set content(value) {
+                [this.name, this.age] = value.split(',');
+            },
+            get content() {
+                return `${this.name}已经${this.age}岁了!`;
+            },
+        }
+        user.content = 'yyy,221'
+        console.log(user.content);
+    </script>
+</body>
+</html>

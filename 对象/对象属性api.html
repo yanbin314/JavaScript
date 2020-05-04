@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const user = {
+            name: 'yyb',
+            age: 20,
+        };
+
+        // 禁止向对象中添加属性
+        // Object.preventExtensions(user);
+        // console.log(Object.getOwnPropertyDescriptors(user));
+        // console.log(Object.isExtensible(user));
+
+        // user.course = 100;
+        // console.log(user);
+
+        // 封闭对象
+        // Object.seal(user);
+        // console.log(Object.getOwnPropertyDescriptors(user));
+        // console.log(Object.isSealed(user));
+        // delete user.name;
+        // console.log(user);
+
+        // 冻结对象
+        // Object.freeze(user);
+        // console.log(Object.isFrozen(user));
+        // console.log(Object.getOwnPropertyDescriptors(user));
+
+    </script>
+</body>
+</html>

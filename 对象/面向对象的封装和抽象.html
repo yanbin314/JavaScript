@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 工厂函数
+        function create(name, age) {
+            return {
+                name,
+                age,
+                show: function() {
+                    console.log(`${this.name}现在${this.age}岁了`);
+                },
+            };
+        }
+        let yyb = create('yyb', 20);
+        // yyb.show();
+
+        function Person(name, age) {
+            var data = {
+                name,
+                age,
+            }
+            var info = function () {
+                return data.age > 18 ? 'adult' : 'child';
+            }
+            // this.info = function () {
+            //     return data.age > 18 ? 'adult' : 'child';
+            // }
+            this.show = function () {
+                console.log(`${data.name}现在${data.age}岁了! ${info()}`);
+            }
+        }
+        var YYB = new Person('YYB', 20);
+        YYB.info = function () {  
+            return 'erwwt';
+        }
+        YYB.show();
+    </script>
+</body>
+</html>

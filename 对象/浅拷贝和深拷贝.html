@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let a11 = {
+            name: '2',
+        }
+        let a22 = {...a11};
+        a22.name = 333;
+        console.log(a11);
+        console.log(a22);
+        // 浅拷贝的方法
+        let hd = {
+            name: 'yyb',
+            age: 20,
+        }
+        let obj1 = {};
+
+        for (const key in hd) {
+            obj1[key] = hd[key];
+        }
+        // hd.name = 'qq';
+        // hd.age = 22;
+        // 浅拷贝不是指能不能同时改变源对象和新对象
+
+        // console.log(hd, obj1);
+
+        // let obj2 = {...hd};
+        // console.log(obj2);
+
+        let hd2 = {
+            name: 'yyb',
+            user: {
+                name: 'wf',
+                thing: [],
+            },
+        };
+        let arr = [];
+        function copy(obj) {
+            let res = obj instanceof Array ? [] : {};
+
+            for (const [k, v] of Object.entries(obj)) {
+
+                res[k] = typeof v === 'object' ? copy(v) : v;
+
+            }
+
+            return res;
+        }
+        let hd3 = copy(hd2);
+        hd3.user.thing.push('dd');
+        console.log(JSON.stringify(hd2, null, 2));
+        console.log(JSON.stringify(hd3, null, 2));
+    </script>
+</body>
+</html>
