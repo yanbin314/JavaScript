@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [
+            {
+                title: 'qwertyuiop',
+                cate: '123',
+            },
+            {
+                title: 'qazewdfds65',
+                cate: 'dsf545',
+            },
+            {
+                title: 'asffdhfhsdfg',
+                cate: 'sdafsdaf',
+            }
+        ];
+        let proxy = new Proxy(arr, {
+            get(item, key) {
+                let title = item[key].title;
+                let len = 8;
+                item[key].title = 
+                    title.length > len ? title.substr(0, len) + '.'.repeat(3) : title;
+                return item[key];
+                // console.log(title);
+                // console.log(item, key);
+            }
+        });
+        arr.forEach( (item, index) => {
+            console.log(proxy[index]);
+        }); 
+        // proxy.arr
+    </script>
+</body>
+</html>

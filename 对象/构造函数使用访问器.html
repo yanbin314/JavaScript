@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 'use strict'
+        function User(name, age) {
+            let data = {
+                name,
+                age,
+            };
+            Object.defineProperties(this, {
+                name: {
+                    get() {
+                        return data.name;
+                    },
+                    set(value) {
+                        if (value.trim() === '' || value.length > 20) {
+                            throw new Error('cuole');
+                        } else {
+                            data.name = value;
+                        }
+                    }
+                },
+                age: {
+                    get() {
+                        return data.age;
+                    },
+                    set(value) {
+                        data.age = value;
+                    }
+                },
+            });
+        }
+
+        let u1 = new User('d', 20);
+        u1.name = 'dsfsd';
+        console.log(u1.name);
+    </script>
+</body>
+</html>
