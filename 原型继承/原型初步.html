@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let hd = {};
+        let xj = {};
+
+        console.log(Object.getPrototypeOf(hd) === Object.getPrototypeOf(xj));
+
+        //没有原型的对象
+        let o1 = Object.create(null, {
+            name: {
+                value: 'sa',
+                writable: true,
+                configurable: true,
+                enumerable: true
+            }
+        });
+        console.log(o1);
+
+        //原型和对象方法的优先级
+        let o2 = {
+            //对象中方法的写法
+            // show() {
+            //     console.log(1)
+            // },
+            show: function () {
+                console.log(11);
+            },
+            render() {
+                console.log(22);
+            }
+        }
+        hd.__proto__.render = function () {
+            console.log(33);
+        };
+        o2.show();
+        o2.render();
+    </script>
+</body>
+</html>

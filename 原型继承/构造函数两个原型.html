@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function User() {}
+        User.prototype.add = function () {
+            console.log('prototype');
+        };
+        User.__proto__.add = function () {
+            console.log('__proto__');
+        };
+        console.dir(User);
+        User.add();
+        let u1 = new User();
+        u1.add();
+        
+        let a1 = [];
+        console.dir(a1);
+        let o1 = {};
+        console.dir(Object.prototype);
+        console.dir(Array.__proto__)
+
+        //自定义对象的原型
+         let son = { name: 'fjc'};
+         let father = {
+             name: 'yyb',
+             show() {
+                 console.log("father's method" + this.name);
+             }
+         }
+
+         Object.setPrototypeOf(son, father);
+         console.log(Object.getPrototypeOf(son));
+         son.show();
+         father.show();
+    </script>
+</body>
+</html>
